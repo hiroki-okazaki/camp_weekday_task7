@@ -1,6 +1,13 @@
-<h1>Editing Article</h1>
-
-<%= render 'form', article: @article %>
-
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<h1>論文編集</h1>
+<%= form_with model: @article, local: true do |form| %>
+  
+  <p>
+    <%= form.label "論文タイトル" %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label "本文" %>
+    <%= form.text_area :body %>
+  </p>
+  <%= form.submit "編集" %>
+<% end %>
