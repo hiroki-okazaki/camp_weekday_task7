@@ -1,13 +1,16 @@
-<h1>新規論文投稿</h1>
-<%= form_with model: @article, local: true do |form| %>
+<h1 class="mb-4">New posts</h1>
+
+<%= form_with model: @article, local: true do |f| %>
+
+  <div class="form-group">
+    <%= f.label "Title" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Body", class: "mt-2" %>
+    <%= f.text_area :body, rows: 8, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-dark btn-block" %>
   
-  <p>
-    <%= form.label "論文タイトル" %>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label "本文" %>
-    <%= form.text_area :body %>
-  </p>
-  <%= form.submit "投稿" %>
 <% end %>
